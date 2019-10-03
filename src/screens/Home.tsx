@@ -18,6 +18,7 @@ const calendarManagerEmitter = new NativeEventEmitter(SpeechRecognition)
 
 const HomeScreen: React.FC = () => {
   const [listening, setListening] = React.useState<boolean>(false)
+  const [text, setText] = React.useState<string>('')
 
   React.useEffect(() => {
     const srStartSubscription = calendarManagerEmitter.addListener(
@@ -32,7 +33,8 @@ const HomeScreen: React.FC = () => {
 
     const srResultSubscription = calendarManagerEmitter.addListener(
       'SRResult',
-      response => console.log(response),
+      response => setText(response),
+      // response => setText((current: string) => `${current} ${response}`),
     )
 
     return () => {
@@ -43,6 +45,8 @@ const HomeScreen: React.FC = () => {
   }, [])
 
   const startRecognition = async (): Promise<void> => {
+    setText('')
+
     try {
       await SpeechRecognition.acquirePermissions()
       await SpeechRecognition.toListen()
@@ -57,7 +61,7 @@ const HomeScreen: React.FC = () => {
     try {
       await SpeechRecognition.orNotToListen()
 
-      setListening(false)
+    setListening(false)
     } catch (rejection) {
       console.error('Oh, poop', rejection)
     }
@@ -76,6 +80,8 @@ const HomeScreen: React.FC = () => {
         ) : (
           <Button title="Stop it!" onPress={stopRecognition} />
         )}
+
+        <Text>{text}</Text>
       </View>
     </SafeAreaView>
   )
