@@ -57,14 +57,9 @@ const HomeScreen: React.FC = () => {
     }
   }
 
-  const stopRecognition = async (): Promise<void> => {
-    try {
-      await SpeechRecognition.orNotToListen()
-
+  const stopRecognition = (): void => {
+    SpeechRecognition.orNotToListen()
     setListening(false)
-    } catch (rejection) {
-      console.error('Oh, poop', rejection)
-    }
   }
 
   return (

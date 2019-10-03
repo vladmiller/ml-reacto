@@ -21,7 +21,6 @@ RCT_EXTERN_METHOD(acquirePermissions: (RCTPromiseResolveBlock)resolve
 RCT_EXTERN_METHOD(toListen: (RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 
-RCT_EXTERN_METHOD(orNotToListen: (RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(orNotToListen)
 
 @end

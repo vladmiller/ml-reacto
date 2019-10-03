@@ -106,14 +106,10 @@ class SpeechRecognition: RCTEventEmitter {
   }
   
   // Stop listening
-  @objc func orNotToListen(
-    _ resolve: @escaping RCTPromiseResolveBlock,
-    rejecter reject: @escaping RCTPromiseRejectBlock
-  ) -> Void {
+  @objc func orNotToListen() -> Void {
     audioEngine.stop()
     recognitionRequest?.endAudio()
-    
-    resolve(nil)
+    recognitionTask?.finish()
   }
   
 
