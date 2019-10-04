@@ -2,7 +2,15 @@
 
 import * as React from 'react'
 import { NativeModules, NativeEventEmitter } from 'react-native'
-import { View, Text, Button, SafeAreaView, StyleSheet } from 'react-native'
+import {
+  View,
+  Text,
+  Button,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  StatusBar,
+} from 'react-native'
 
 const { SpeechRecognition } = NativeModules
 const calendarManagerEmitter = new NativeEventEmitter(SpeechRecognition)
@@ -21,26 +29,20 @@ const HomeScreen: React.FC = () => {
   const [text, setText] = React.useState<string>('')
 
   React.useEffect(() => {
-    const srStartSubscription = calendarManagerEmitter.addListener(
-      'SRStart',
-      () => console.log('Speech Recognition started'),
-    )
+    const subscriptions = [
+      calendarManagerEmitter.addListener('SRStart', () =>
+        console.log('Speech Recognition started'),
+      ),
 
-    const srStopSubscription = calendarManagerEmitter.addListener(
-      'SRStop',
-      () => console.log('Speech Recognition stopped'),
-    )
+      calendarManagerEmitter.addListener('SRStop', () => stopRecognition()),
 
-    const srResultSubscription = calendarManagerEmitter.addListener(
-      'SRResult',
-      response => setText(response),
-      // response => setText((current: string) => `${current} ${response}`),
-    )
+      calendarManagerEmitter.addListener('SRResult', response =>
+        setText(response),
+      ),
+    ]
 
     return () => {
-      srStartSubscription.remove()
-      srStopSubscription.remove()
-      srResultSubscription.remove()
+      subscriptions.forEach(s => s.remove())
     }
   }, [])
 
@@ -63,27 +65,37 @@ const HomeScreen: React.FC = () => {
   }
 
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <Text style={styles.intro}>
-          This is a sample application which shows how to integrate iOS ML Core
-          framework into React Native
-        </Text>
+    <>
+      <StatusBar barStyle="dark-content" />
 
-        {!listening ? (
-          <Button title="Listen & Recognize" onPress={startRecognition} />
-        ) : (
-          <Button title="Stop it!" onPress={stopRecognition} />
-        )}
+      <SafeAreaView style={styles.container}>
+        <View style={styles.inner}>
+          <Text style={styles.intro}>
+            This is a sample application which shows how to integrate iOS ML
+            Core framework into React Native
+          </Text>
 
-        <Text>{text}</Text>
-      </View>
-    </SafeAreaView>
+          {!listening ? (
+            <Button title="Listen & Recognize" onPress={startRecognition} />
+          ) : (
+            <Button title="Stop it!" onPress={stopRecognition} />
+          )}
+
+          <ScrollView>
+            <Text>{text}</Text>
+          </ScrollView>
+        </View>
+      </SafeAreaView>
+    </>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+
+  inner: {
     marginTop: 15,
     marginLeft: 10,
     marginRight: 10,
