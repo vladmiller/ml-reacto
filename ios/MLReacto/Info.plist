@@ -41,6 +41,8 @@
 	<string></string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Access to NLP framework is required for this demo</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>Used to enable Speech Recognition Framework</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
