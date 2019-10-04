@@ -1,51 +1,30 @@
-# :space_invader: React Native Template TypeScript
+# ML Reacto
+
+A simple React Native demo application to showcase how Apple's ML Core Speech Framework
+can be integrated in React Native application
 
 <p>
-  <a href="https://travis-ci.org/react-native-community/react-native-template-typescript">
-    <img alt="Build Status" src="https://img.shields.io/travis/react-native-community/react-native-template-typescript.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript#readme">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript/graphs/commit-activity">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
-  </a>
-  <a href="https://github.com/react-native-community/react-native-template-typescript/blob/master/LICENSE">
+  <a href="https://github.com/vladmiller/ml-reacto/blob/master/LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
   </a>
 </p>
 
-> Clean and minimalist React Native template for a quick start with TypeScript.
+## Getting started
 
-## :star: Features
+In order to run this application, you would need Mac with installed `react-native` package.
 
-- Elegant usage directly within the [React Native CLI](https://github.com/react-native-community/cli)
-- Consistent with the default React Native template
-- Minimal additional dependencies
+<!-- ## Installing -->
 
-## :arrow_forward: Usage
+<!-- ## Running the tests -->
 
-> `react-native@0.61.0` or higher
+<!-- ## Deployment -->
 
-```sh
-npx react-native init MyApp --template react-native-template-typescript
-```
+## Built With
 
-> `react-native@0.60.x`
+* [React Native](https://facebook.github.io/react-native/docs/0.60/getting-started) - React Native combines the best parts of native development with React.
+* [Speech Framework](https://developer.apple.com/documentation/speech) - Apple's Speech Framework
+* [TypeScript](https://www.typescriptlang.org/docs/home.html) - TypeScript is a typed superset of JavaScript.
 
-```sh
-npx react-native init MyApp --template react-native-template-typescript@6.2.0
-```
+## License
 
-### Note on the legacy CLI
-There seems to be quite some confusion about the legacy CLI. This template only works with the new CLI. Make sure you have uninstalled the legacy `react-native-cli` first (`npm uninstall -g react-native-cli`), for the above command to work. If you wish to not use `npx`, you can also install the new CLI globally (`npm i -g @react-native-community/cli` or `yarn global add @react-native-community/cli`).
-
-Further information can be found here: https://github.com/react-native-community/cli#about
-
-## :computer: Contributing
-
-Contributions are very welcome. Please check out the [contributing document](CONTRIBUTING.md).
-
-## :bookmark: License
-
-This project is [MIT](LICENSE) licensed.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
