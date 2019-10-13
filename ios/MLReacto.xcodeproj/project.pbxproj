@@ -14,6 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		151824FEABE1E63A1E4B0B38 /* libPods-MLReacto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E88999318DE304D0127D40CA /* libPods-MLReacto.a */; };
 		3302A8E976CF99195AF39381 /* libPods-MLReactoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18799BB2930AD3ED4B87A018 /* libPods-MLReactoTests.a */; };
+		99F01F4C2352FCA70070F0F5 /* SpeechAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F01F4B2352FCA70070F0F5 /* SpeechAPI.swift */; };
+		99F01F4E2352FD4D0070F0F5 /* SpeechAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F01F4D2352FD4D0070F0F5 /* SpeechAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,9 @@
 		5BB413D828B86D50B4058DA5 /* Pods-MLReacto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLReacto.release.xcconfig"; path = "Target Support Files/Pods-MLReacto/Pods-MLReacto.release.xcconfig"; sourceTree = "<group>"; };
 		834514CB59B7F4E256B97C2D /* libPods-MLReacto-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MLReacto-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		923332821612F872141CED91 /* Pods-MLReactoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLReactoTests.debug.xcconfig"; path = "Target Support Files/Pods-MLReactoTests/Pods-MLReactoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		99F01F4A2352FCA60070F0F5 /* MLReacto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MLReacto-Bridging-Header.h"; sourceTree = "<group>"; };
+		99F01F4B2352FCA70070F0F5 /* SpeechAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechAPI.swift; sourceTree = "<group>"; };
+		99F01F4D2352FD4D0070F0F5 /* SpeechAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeechAPI.m; sourceTree = "<group>"; };
 		CD796761DBDE7AFD6C28392F /* Pods-MLReacto-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLReacto-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-MLReacto-tvOSTests/Pods-MLReacto-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		E769E2DD47C3BD612A4E69B2 /* Pods-MLReacto-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MLReacto-tvOS.release.xcconfig"; path = "Target Support Files/Pods-MLReacto-tvOS/Pods-MLReacto-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		E88999318DE304D0127D40CA /* libPods-MLReacto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MLReacto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +99,7 @@
 		13B07FAE1A68108700A75B9A /* MLReacto */ = {
 			isa = PBXGroup;
 			children = (
+				99F01F492352FC660070F0F5 /* Speech */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -164,6 +170,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		99F01F492352FC660070F0F5 /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				99F01F4B2352FCA70070F0F5 /* SpeechAPI.swift */,
+				99F01F4A2352FCA60070F0F5 /* MLReacto-Bridging-Header.h */,
+				99F01F4D2352FD4D0070F0F5 /* SpeechAPI.m */,
+			);
+			name = Speech;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,6 +237,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 5SH526H84H;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -356,8 +373,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F01F4E2352FD4D0070F0F5 /* SpeechAPI.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				99F01F4C2352FCA70070F0F5 /* SpeechAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +407,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 923332821612F872141CED91 /* Pods-MLReactoTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -411,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3481A36154B55F8E3336D354 /* Pods-MLReactoTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = MLReactoTests/Info.plist;
@@ -432,6 +453,7 @@
 			baseConfigurationReference = 11E34349E7F44334F3EE77EC /* Pods-MLReacto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 5SH526H84H;
@@ -445,6 +467,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vladmiller.ml-reacto";
 				PRODUCT_NAME = MLReacto;
+				SWIFT_OBJC_BRIDGING_HEADER = "MLReacto-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -454,6 +479,7 @@
 			baseConfigurationReference = 5BB413D828B86D50B4058DA5 /* Pods-MLReacto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5SH526H84H;
 				INFOPLIST_FILE = MLReacto/Info.plist;
@@ -466,6 +492,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vladmiller.ml-reacto";
 				PRODUCT_NAME = MLReacto;
+				SWIFT_OBJC_BRIDGING_HEADER = "MLReacto-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

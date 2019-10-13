@@ -3,9 +3,19 @@
  */
 
 import * as React from 'react'
-import { SafeAreaView, StyleSheet, View, Text, StatusBar } from 'react-native'
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  StatusBar,
+  NativeModules,
+} from 'react-native'
 
 import { Colors } from 'react-native/Libraries/NewAppScreen'
+
+const { SpeechAPI } = NativeModules
 
 const App: React.FC = () => (
   <>
@@ -17,6 +27,11 @@ const App: React.FC = () => (
         <Text style={styles.subtitle}>
           I am a TypeScript-based React Native application.
         </Text>
+
+        <Button
+          title="Call to RN Module"
+          onPress={() => SpeechAPI.helloWorld()}
+        />
       </View>
     </SafeAreaView>
   </>
